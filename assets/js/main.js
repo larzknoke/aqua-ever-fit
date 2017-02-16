@@ -4,7 +4,7 @@ $( document ).ready(function() {
     // NAVIGATION
     $( "nav li" ).hover(
       function() {
-        $( "nav" ).css('background-color', 'rgba(0,157,224, .8)');
+        $( "nav" ).css('background-color', 'rgba(0,177,252, 1)');
         $( "nav a" ).css('color', 'white');
       }, function() {
         $( "nav" ).css('background-color', 'white');
@@ -12,13 +12,31 @@ $( document ).ready(function() {
       }
     );
 
+    $( ".lange-logo" ).hover(
+      function() {
+        // $('.lange-logo').css('background-color', '#00A6ED');
+        $('.lange-teaser').animate({
+            width: 200
+        });
+      }, function() {
+        // $('.lange-logo').css('background-color', 'transparent');
+        $('.lange-teaser').animate({
+            width: 0
+        });
+      }
+    );
+
+    $(document).scroll(function(){
+         $('nav').toggleClass('shadow', $(this).scrollTop() > 150);
+     });
+
     $('a[href*="#"]:not([href="#"])').click(function() {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
         if (target.length) {
           $('html, body').animate({
-            scrollTop: target.offset().top - 50
+            scrollTop: target.offset().top - 125
           }, 1000);
           return false;
         }
