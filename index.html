@@ -1,20 +1,39 @@
 ---
 layout: default
 ---
+
+{% include slider.html %}
+
 <section class="schwimmbad section schwimmbad-trigger"  id="schwimmbad-anchor">
   <div class="section-header" id="animation">
     <div class="header-dash"></div>
-    <h1>Das Schwimmbad.</h1>
+    <h1>Das Schwimmbad</h1>
   </div>
   <div class="section-content">
-    <div class="half">
+    <div class="half fade-left">
       <div class="section-text">
           <p>Die Beckengröße beträgt 7 x 15 Meter bei einer Wassertiefe von 1,35 Meter. Das entspricht einer Wasseroberfläche von 105qm. Die ständige Wassertemperatur beträgt ca. 30 Grad Celsius. Die ständige Raumtemperatur beträgt ca. 32 Grad Celsius in der Halle des Bades. <br> <br> Die benötigte Wärme und Energie wird mit einem energieeffizientem gasbetriebenen Blockheizkraftwerk erzeugt. Die Beleuchtung des Edelstahlbeckens , der Halle und sämtlicher Räume erfolgt mit energiesparender LED-Technik. Damit lassen sich besondere Farbeffekte erzeugen, die den Aufenthalt im Bad zu einem besonderen Erlebnis werden lassen. Zusätzlich kann von den Kurstrainern die moderne Beschallungstechnik genutzt werden.</p>
       </div>
     </div>
-    <div class="half">
-      <div class="section-img" style="background-image: url({{ site.baseurl }}/assets/img/header/slider/slider7.jpg);"></div>
+    <div class="half fade-right overlay-container" id="BadGallery">
+      <div class="section-img" style="background-image: url({{ site.baseurl }}/assets/img/home/home_bad2.jpg);"></div>
+      <div class="overlay">
+        <div class="overlay-content"><i class="fa fa-search-plus fa-5x" aria-hidden="true"></i></div>
+      </div>
+      <!-- <div id="BadGallery" class="img-container">
+        <div class="section-img" style="background-image: url({{ site.baseurl }}/assets/img/home/home_bad2.jpg);"></div>
+      </div> -->
     </div>
+  </div>
+</section>
+
+<section class="sponsoring">
+  <p>diese Organisationen und Vereine bieten Kurse und Veranstaltungen für das Aqua Everfit an:</p>
+  <div class="spon-container">
+    <div class="spon-item">VHS Höxter</div>
+    <div class="spon-item">Kneippverein Holzminden e.V.</div>
+    <div class="spon-item">Rheuma-Liga</div>
+    <div class="spon-item">Adipositas</div>
   </div>
 </section>
 
@@ -24,11 +43,14 @@ layout: default
     <h1>Sauna</h1>
   </div>
   <div class="section-content">
-    <div class="half">
-      <div class="section-img" style="background-image: url({{ site.baseurl }}/assets/img/header/slider/slider8.jpg);"></div>
+    <div class="half overlay-container" id="SaunaGallery" >
+      <div class="section-img" style="background-image: url({{ site.baseurl }}/assets/img/home/home_sauna.jpg);"></div>
+      <div class="overlay">
+        <div class="overlay-content"><i class="fa fa-search-plus fa-5x" aria-hidden="true"></i></div>
+      </div>
     </div>
     <div class="half">
-      <div class="section-text">
+      <div class="section-text fade-right">
           <p>Die Beckengröße beträgt 7 x 15 Meter bei einer Wassertiefe von 1,35 Meter. Das entspricht einer Wasseroberfläche von 105qm. Die ständige Wassertemperatur beträgt ca. 30 Grad Celsius. Die ständige Raumtemperatur beträgt ca. 32 Grad Celsius in der Halle des Bades. <br> <br> Die benötigte Wärme und Energie wird mit einem energieeffizientem gasbetriebenen Blockheizkraftwerk erzeugt. Die Beleuchtung des Edelstahlbeckens , der Halle und sämtlicher Räume erfolgt mit energiesparender LED-Technik. Damit lassen sich besondere Farbeffekte erzeugen, die den Aufenthalt im Bad zu einem besonderen Erlebnis werden lassen. Zusätzlich kann von den Kurstrainern die moderne Beschallungstechnik genutzt werden.</p>
       </div>
     </div>
@@ -36,43 +58,28 @@ layout: default
 </section>
 
 <section class="zeiten section" id="zeiten-anchor">
-    <h1>Öffnungszeiten</h1>
+    <h1>Service-Zeiten</h1>
     <div class="zeiten-container">
-      <div class="zeit-table">
+      <div class="zeit-table fade-left">
+        <p style="line-height: 2rem; margin-bottom: 1rem;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quidem fugit dolor quam corporis repellendus, dolores labore velit, vero optio nostrum ab quis delectus vitae suscipit earum! Mollitia, voluptatem numquam!</p>
         <table>
           <tr>
             <td>Montag:</td>
-            <td style="font-weight: 400">9:30 - 13:00 Uhr</td>
+            <td style="font-weight: 400">16:30 - 17:30 Uhr</td>
           </tr>
           <tr>
             <td>Dienstag:</td>
-            <td style="font-weight: 400">geschlossen</td>
-          </tr>
-          <tr>
-            <td>Mittwoch:</td>
-            <td style="font-weight: 400">13:30 - 17:00 Uhr</td>
+            <td style="font-weight: 400">10:00 - 12:00 Uhr</td>
           </tr>
           <tr>
             <td>Donnerstag:</td>
-            <td style="font-weight: 400">9:30 - 13:00 Uhr</td>
-          </tr>
-          <tr>
-            <td>Freitag:</td>
-            <td style="font-weight: 400">9:30 - 13:00 Uhr</td>
-          </tr>
-          <tr>
-            <td>Samstag:</td>
-            <td style="font-weight: 400">9:30 - 11:00 Uhr</td>
-          </tr>
-          <tr>
-            <td>Sonntag:</td>
-            <td style="font-weight: 400">7:30 - 11:00 Uhr</td>
+            <td style="font-weight: 400">16:30 - 17:30 Uhr</td>
           </tr>
         </table>
+        <p style="line-height: 2rem;margin-top:1rem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quis.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, harum!</p>
       </div>
-      <div class="zeit-img">
-        <div class="section-img" style="background-image: url({{ site.baseurl }}/assets/img/header/slider/slider5.jpg);"></div>
-      </div>
+      <div class="section-img" style="background-image: url({{ site.baseurl }}/assets/img/home/home_zeiten.jpg);"></div>
     </div>
 </section>
 
@@ -81,6 +88,7 @@ layout: default
     <div class="header-dash"></div>
     <h1>Kontakt</h1>
   </div>
+  <div id="map"><a href='contact.html'>Hier finden Sie uns!</a></div>
   <div class="kontakt-container">
     <div class="form-content">
       <form action="" method="post">
@@ -121,5 +129,29 @@ layout: default
 </section>
 
 <footer>
-  <p>©2016 aqua-everfit GmbH & Co. KG</p>
+  <p>©2017 aqua-everfit GmbH & Co. KG</p>
 </footer>
+
+<div class="backTop">
+  <i class="fa fa-arrow-up fa-2x" aria-hidden="true"></i>
+</div>
+
+<script>
+  /* GOOGLE MAPS */
+  function initMap() {
+
+    var myLatLng = {lat: 51.773810, lng: 9.363820};
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: myLatLng,
+      scrollwheel: false,
+      zoom: 15
+    });
+
+    var marker = new google.maps.Marker({
+      map: map,
+      position: myLatLng,
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVrcwL7Rt-2hn6cNLW6GpZsh1SDbkSg6Q&callback=initMap" async defer></script>

@@ -1,0 +1,193 @@
+.nav-container {
+
+  .nav {
+
+    ul {
+      padding: 0 5rem;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      list-style: none;
+      transition: all 200ms ease-in-out;
+
+        &.hover {
+
+          background-color: lighten($color_blue,5%);
+
+          a {
+            color: white;
+          }
+        }
+
+        a {
+            padding: 2rem 2.5rem;
+            text-decoration: none;
+            display: flex;
+            color: $color_grey;
+            text-transform: uppercase;
+            font-weight: 300;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: all 200ms ease-in-out;
+
+            &:hover, &:focus {
+              background-color: $color_blue_hard;
+              color: white;
+            }
+        }
+
+      .lange-logo {
+        overflow: hidden;
+        position: relative;
+        transition: width 400ms ease-in-out;
+        width: 5rem;
+
+        &:hover {
+          width: 18rem;
+        }
+
+        span {
+          padding-left: 3rem;
+        }
+
+        img {
+          height: 40px;
+          top:20px;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  .menu-trigger {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .nav-container .nav ul {
+    padding: 0 3rem;
+
+    a {
+      padding: 2rem;
+    }
+  }
+
+}
+
+
+
+@media (max-width: 768px) {
+
+  .nav-container {
+      position: relative;
+      padding: 0;
+
+      .menu-trigger {
+        display: inline-block;
+        position: absolute;
+        top: 1.95rem;
+        right: 1rem;
+        display: block;
+        z-index: 9999;
+        height: 3rem;
+        width: 3rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .nav {
+          position: absolute;
+          transform: translateY(-100%);
+          transition: all 200ms;
+          opacity: 0;
+          z-index: 9000;
+          background-color: white;
+          width: 100%;
+
+          &.nav-active {
+            transform: translateY(0);
+            opacity: 1;
+            height: 100vh;
+
+          }
+
+          ul {
+            flex-direction: column;
+            margin: 0;
+            padding:0;
+
+            a {
+              text-align: center;
+              width: 100%;
+              display: inline-block;
+            }
+
+            .lange-logo {
+              display: inline-block;
+              width: 100%;
+
+                &:hover {
+                  width: 100%;
+                }
+            }
+          }
+      }
+    }
+}
+
+$main-bg:        #1BBC9B;
+$nav-color:      #bfbfbf;
+$nav-bg-active:  #333;
+$screen-bg:      #D2527F;
+$duration:       300ms;
+$ease:           ease-in-out;
+
+
+.nav__icon {
+  display:inline-block;
+  position: relative;
+  width:30px;
+  height:5px;
+  background-color: $nav-color;
+  transition-property: background-color, transform;
+  transition-duration: $duration;
+
+  &:before,
+  &:after {
+    content:'';
+    display:block;
+    width:30px;
+    height:5px;
+    position: absolute;
+    background: $nav-color;
+    transition-property: margin, transform;
+    transition-duration: $duration;
+
+  }
+
+  &:before {
+    margin-top:-10px;
+  }
+
+  &:after {
+    margin-top:10px;
+  }
+}
+
+.nav-active .nav__icon {
+  background: rgba(0,0,0,0.0);
+
+  &:before {
+    margin-top:0;
+    transform:rotate(45deg);
+  }
+
+  &:after {
+    margin-top:0;
+    transform:rotate(-45deg);
+  }
+}

@@ -1,2 +1,4 @@
-$color_grey: #706f6f;      // grey
-$color_blue: #009de0;    // blue
+$color_grey: #706f6f;
+$color_blue: #009de0;
+$color_blue_soft: lighten($color_blue,20%);
+$color_blue_hard: darken($color_blue, 1%);

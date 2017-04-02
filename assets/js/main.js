@@ -1,35 +1,113 @@
 $( document ).ready(function() {
-    console.log( "ready!" );
+
+
+    /* NAVIGATION */
+    var body = $('body')
+    var logoImg = $('.logo img')
+
+
+    function viewport() {
+
+        var e = window,
+            a = 'inner';
+
+        if (!('innerWidth' in window)) {
+
+            a = 'client';
+            e = document.documentElement || document.body;
+
+        }
+
+        return {
+            width: e[a + 'Width'],
+            height: e[a + 'Height']
+        };
+
+    }
+
+
+    /* Toggle "mobile" class */
+
+    function mobileClass() {
+
+        var vpWidth = viewport().width; // This should match media queries
+
+        if ((vpWidth <= 768) && (!body.hasClass('mobile'))) {
+
+            body.addClass('mobile');
+            logoImg.attr('src',logoImg.attr('src').replace("logo.png", "logo_klein.png"))
+
+        } else if ((vpWidth > 768) && (body.hasClass('mobile'))) {
+
+            body.removeClass('mobile');
+            logoImg.attr('src',logoImg.attr('src').replace("logo_klein.png", "logo.png"))
+
+        }
+
+    }
+
+    mobileClass();
+    $(window).resize(mobileClass);
+
+
 
     // NAVIGATION
-    $( "nav li" ).hover(
-      function() {
-        $( "nav" ).css('background-color', 'rgba(0,177,252, 1)');
-        $( "nav a" ).css('color', 'white');
-      }, function() {
-        $( "nav" ).css('background-color', 'white');
-        $( "nav a" ).css('color', 'rgba(111,111,111, 1)');
-      }
-    );
+    function navColor () {
+      // if (body.hasClass('mobile')) {
+      //   $( "nav a" ).css('color', 'white');
+      // } else {
+      //   $( "nav a" ).css('color', 'rgba(111,111,111, 1)');
+      // }
 
-    $( ".lange-logo" ).hover(
-      function() {
-        // $('.lange-logo').css('background-color', '#00A6ED');
-        $('.lange-teaser').animate({
-            width: 200
-        });
-      }, function() {
-        // $('.lange-logo').css('background-color', 'transparent');
-        $('.lange-teaser').animate({
-            width: 0
-        });
-      }
-    );
+      $( ".nav ul" ).hover(
+        function() {
+          if (!(body.hasClass('mobile'))) {
+            $('.nav ul').addClass('hover')
+          }
 
+        }, function() {
+          if (!(body.hasClass('mobile'))) {
+            $('.nav ul').removeClass('hover')
+          }
+        }
+      );
+    }
+    navColor();
+    $(window).resize(navColor);
+
+
+
+    // MOBILE NAV
+    $('.menu-trigger').on('click', function(e){
+      e.preventDefault();
+      $(this).siblings('.nav').toggleClass('nav-active');
+      $(this).parent().toggleClass('nav-active');
+    });
+
+
+
+    // FIXED NAV WITH SHADOW & BACK TO TOP FADE IN
     $(document).scroll(function(){
-         $('nav').toggleClass('shadow', $(this).scrollTop() > 150);
+         $('.nav-container').toggleClass('shadow', $(this).scrollTop() > 150);
+        //  $('.backTop').toggle($(this).scrollTop() > 250);
+         if ($(document).scrollTop() > 500) {
+           $('.backTop').fadeIn();
+         }
+         else {
+           $('.backTop').fadeOut();
+          }
      });
 
+     // BACK TO TOP
+     $('.backTop').click(function(){
+       $('html, body').animate({
+         scrollTop: 0
+       }, 400);
+       return false
+     });
+
+
+    // LINK NAVIGATION
     $('a[href*="#"]:not([href="#"])').click(function() {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
@@ -50,7 +128,7 @@ $( document ).ready(function() {
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        // autoplay: true,
+        autoplay: true,
         autoplaySpeed: 7000,
         // adaptiveHeight: true,
         arrows: false,
@@ -66,37 +144,52 @@ $( document ).ready(function() {
 
 
 
+    // Fancybox
+    $("[data-fancybox='rundgang']").fancybox({
+    	iframe : {
+    		css : {
+    			width : '80%',
+    			height : '80%'
+    		}
+    	}
+    });
 
-    // SCOLLMAGIC
-    // var scrollMagicController = new ScrollMagic.Controller();
-    //
-    // var tween = TweenMax.to('.section-header', 2, {
-    //   marginLeft: '0',
-    //   opacity: 1
-    // });
-    //
-    // var tween2 = TweenMax.to('.section-content', 2, {
-    //   opacity: 1
-    // });
-    //
-    // var scene = new ScrollMagic.Scene({
-    //   triggerElement: '.schwimmbad-trigger',
-    //   // duration: 200,
-    //   triggerHook: 'onEnter',
-    //   // offset: 150
-    // })
-    // .setTween(tween)
-    // .addTo(scrollMagicController);
-    //
-    // var scene2 = new ScrollMagic.Scene({
-    //   triggerElement: '.schwimmbad-trigger',
-    //   // duration: 200,
-    //   triggerHook: 'onEnter',
-    //   // offset: 150
-    // })
-    // .setTween(tween2)
-    // .addTo(scrollMagicController);
-    //
-    // // Add debug indicators fixed on right side
-    //  scene.addIndicators();
+
+
+    //scrollMonitor
+
+    //BadScroll
+    var badH1 = $('.schwimmbad h1')
+    var badHeaderDash = $('.schwimmbad .header-dash')
+    var badFadeLeftRight = $('.schwimmbad .fade-right, .schwimmbad .fade-left ')
+    var badWatcher = scrollMonitor.create( badHeaderDash, -100 );
+
+    badWatcher.enterViewport(function() {
+        badHeaderDash.addClass('fade-in');
+        badH1.addClass('fade-in');
+        badFadeLeftRight.addClass('fade-in');
+    });
+
+    // SaunaScroll
+    var saunaHeaderDash = $('.sauna .header-dash');
+    var saunaH1 = $('.sauna h1');
+    var saunaText = $('.sauna .section-text');
+    var saunaWatcher = scrollMonitor.create( saunaHeaderDash, 0 );
+
+    saunaWatcher.enterViewport(function(){
+      saunaH1.addClass('fade-in');
+      saunaHeaderDash.addClass('fade-in');
+      saunaText.addClass('fade-in');
+    });
+
+    // ZeitenScroll
+    var zeitenContainer = $('.zeiten');
+    var zeitenFadeLeftRight = $('.zeiten .fade-right, .zeiten .fade-left ')
+    var zeitenWatcher = scrollMonitor.create( zeitenContainer, 0 );
+
+    zeitenWatcher.enterViewport(function(){
+      zeitenFadeLeftRight.addClass('fade-in');
+    });
+
+
 });

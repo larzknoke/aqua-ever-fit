@@ -1,0 +1,73 @@
+.schwimmbad {
+
+  .header-dash {
+      transform: translateX(-15%);
+      opacity: 0;
+      transition: all 600ms ease;
+
+      &.fade-in {
+        transform: translateX(0);
+        opacity: 1;
+      }
+  }
+
+  h1 {
+    transform: translateX(-15%);
+    opacity: 0;
+    transition: all 900ms ease 100ms;
+
+      &.fade-in {
+        transform: translateX(0);
+        opacity: 1;
+      }
+  }
+}
+
+.sauna {
+
+  .header-dash {
+      transform: translateX(-5%);
+      opacity: 1;
+      transition: all 1200ms ease;
+
+      &.fade-in {
+        transform: translateX(0);
+        opacity: 1;
+      }
+  }
+
+  h1 {
+    transform: translateX(-25%);
+    opacity: 0;
+    transition: all 900ms ease 100ms;
+
+      &.fade-in {
+        transform: translateX(0);
+        opacity: 1;
+      }
+  }
+}
+
+
+
+.fade-left {
+  transform: translateX(-5%);
+  transition: all 1200ms ease 300ms;
+  opacity: 0;
+
+  &.fade-in {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+}
+.fade-right {
+  transform: translateX(5%);
+  transition: all 1400ms ease 400ms;
+  opacity: 0;
+
+  &.fade-in {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
