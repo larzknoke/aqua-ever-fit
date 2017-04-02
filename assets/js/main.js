@@ -174,7 +174,7 @@ $( document ).ready(function() {
     var saunaHeaderDash = $('.sauna .header-dash');
     var saunaH1 = $('.sauna h1');
     var saunaText = $('.sauna .section-text');
-    var saunaWatcher = scrollMonitor.create( saunaHeaderDash, 0 );
+    var saunaWatcher = scrollMonitor.create( saunaH1, 0 );
 
     saunaWatcher.enterViewport(function(){
       saunaH1.addClass('fade-in');
@@ -184,11 +184,13 @@ $( document ).ready(function() {
 
     // ZeitenScroll
     var zeitenContainer = $('.zeiten');
-    var zeitenFadeLeftRight = $('.zeiten .fade-right, .zeiten .fade-left ')
+    var zeitenFadeLeftRight = $('.zeiten .fade-right, .zeiten .fade-left ');
+    var zeitenImg = $('.zeiten .section-img');
     var zeitenWatcher = scrollMonitor.create( zeitenContainer, 0 );
 
     zeitenWatcher.enterViewport(function(){
       zeitenFadeLeftRight.addClass('fade-in');
+      zeitenImg.addClass('fade-in');
     });
 
 
