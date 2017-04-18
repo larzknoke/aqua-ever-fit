@@ -53,13 +53,7 @@ $( document ).ready(function() {
 
     // NAVIGATION
     function navColor () {
-      // if (body.hasClass('mobile')) {
-      //   $( "nav a" ).css('color', 'white');
-      // } else {
-      //   $( "nav a" ).css('color', 'rgba(111,111,111, 1)');
-      // }
-
-      $( ".nav ul" ).hover(
+      $( ".nav ul li" ).hover(
         function() {
           if (!(body.hasClass('mobile'))) {
             $('.nav ul').addClass('hover')

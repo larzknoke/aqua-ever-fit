@@ -53,7 +53,9 @@
         window.onload = function () {
           setTimeout(func, 500);
           function func() {
-              document.body.classList.remove('loading');
+              $('.loader').fadeOut(200, function(){
+                $('body').removeClass('loading');
+              });
           }
         }
       </script>

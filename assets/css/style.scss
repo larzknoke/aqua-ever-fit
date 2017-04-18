@@ -23,11 +23,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 99999;
+  transition: all 2000 ease;
 }
 
 
 a {
   text-decoration: none;
+  color: $color_grey;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
 }
 
 nav a:focus {outline:none}
@@ -101,7 +112,7 @@ nav a:focus {outline:none}
     justify-content: center;
 
     .half {
-      width: 45%;
+      width: 47%;
       min-height: 500px;
       align-self: stretch;
       display: flex;
@@ -124,15 +135,12 @@ nav a:focus {outline:none}
         position: relative;
 
         h2 {
-          font-size: 2rem;
+          font-size: 1.8rem;
           font-family: 'Roboto Slab', serif;
-          font-weight: 700;
-          margin: 1rem 0;
-          font-style: italic;
-        }
-
-        p {
-          padding: 3%;
+          font-weight: 400;
+          margin-bottom: 2.5rem;
+          letter-spacing: 0.1rem;
+          color: darken($color_blue, 10%);
         }
 
       }
@@ -161,16 +169,18 @@ nav a:focus {outline:none}
     flex-wrap: wrap;
 
 
-    .spon-item {
+    .spon-item a {
       margin: 2rem;
       font-size: 2.2rem;
       font-family: 'Roboto Slab', serif;
       font-weight: 600;
       color: lighten($color_grey,35%);
+      display: inline-block;
 
       &:hover {
         color: $color_grey;
         cursor: pointer;
+        text-decoration: none;
       }
     }
 
@@ -194,7 +204,7 @@ nav a:focus {outline:none}
     // opacity: 0;
 
       .header-dash {
-        width: 60%;
+        width: 15%;
         height: 4rem;
         background-color: white;
         display: inline-block;
@@ -221,14 +231,100 @@ nav a:focus {outline:none}
 
     .section-text {
       width: 100%;
-      padding: 5% 8%;
+      padding: 4% 10% 7%;
+
+      .half-text {
+        display: flex;
+
+        .flex-item {
+          flex: 1 1 auto;
+
+          p {
+            margin-bottom: .85rem;
+            font-size: 1.1rem;
+
+            i {
+              // color: darken($color_blue, 5%)
+            }
+          }
+        }
+      }
     }
 
   }
 }
 
 
+/* ########## SESSEL ############ */
 
+.sessel.section .section-content .half {
+  width: 50%;
+}
+.sessel {
+
+  margin: 16rem 0;
+  background-color: white;
+
+  .header-dash-sessel {
+    width: 25%;
+    height: 4rem;
+    background-color: $color_blue;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+    position: relative;
+
+
+    &:after {
+        content: '';
+        width: 0;height: 0;line-height: 0;
+        border-right: 3rem solid white;
+        border-top: 4rem solid $color_blue;
+        top: 0;right: 0;
+        position: absolute;
+      }
+  }
+
+
+  .sessel-left {
+
+    background-color: white;
+    padding: 7rem ;
+
+    img {
+      width: 100%;
+    }
+
+    .section-text {
+      padding: 0;
+
+
+        p {
+          padding: 0;
+        }
+    }
+
+    h1 {
+      font-family: 'Roboto Slab', serif;
+      text-align: left;
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      vertical-align: super;
+      color: $color_grey;
+    }
+
+    h2 {
+      line-height: 3rem;
+      margin-top: 5rem;
+      font-size: 2.2rem !important;
+      color: $color_grey !important;
+      text-align: center;
+    }
+  }
+}
 
 
 /* ########## ZEITEN ############ */
@@ -271,9 +367,15 @@ nav a:focus {outline:none}
     padding: 3rem;
     box-shadow: 0px 0px 10px rgba(102,102,102,.3);
 
+      p {
+        font-family: 'Open Sans', sans-serif;
+        line-height: 2rem;
+        margin: 1rem 0;
+      }
 
       table td {
         padding: 1rem 2rem;
+        font-size: 1.2rem;
       }
   }
 
@@ -406,6 +508,42 @@ footer {
 
 
 
+/* ########## IMPRESSUM ############ */
+#impressum {
+  max-width: 50vw;
+  padding: 3rem;
+  box-shadow: 0 7px 8px -4px rgba(0,0,0,.2), 0 13px 19px 2px rgba(0,0,0,.14), 0 5px 24px 4px rgba(0,0,0,.12);
+  border-radius: 4px;
+  opacity: 0;
+  transition: all .3s;
+  line-height: 1.35rem;
+  // transform: translate(30%) translateZ(600px) rotate(10deg);
+
+    h2 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      margin-bottom: 3rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0rem;
+    }
+
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+}
+
+.fancybox-slide--complete #impressum {
+    opacity: 1;
+    // transform: translate(0%) translateZ(0) rotate(0deg);
+}
+
+
 /* ########## RESONSIVE STYLES ############ */
 
 @media (max-width:  667px) {
@@ -448,11 +586,30 @@ footer {
   .sauna .section-header h1 {
     padding: 1rem;
   }
+  .sauna .section-content .section-text .half-text {
+    flex-direction: column;
+  }
+  .sauna .section-content .section-text h2{
+    margin: 0.5rem 0 1rem 0;
+  }
 
+
+  // SESSEL
+  .sessel.section {
+    margin-bottom: 5rem;
+  }
+
+  .sessel.section .section-content .half {
+    width: inherit;
+  }
+
+  .sessel .sessel-left {
+    padding: 3rem;
+  }
 
   // ZEITEN
   .zeiten h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
   }
 
@@ -471,6 +628,9 @@ footer {
     padding: 1.5rem;
   }
 
+  #impressum {
+    max-width: 90vw;
+  }
 }
 
 
@@ -503,8 +663,5 @@ footer {
       padding: 2rem;
     }
   }
-
-
-
 
 }
