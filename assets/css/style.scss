@@ -198,6 +198,11 @@ nav a:focus {outline:none}
 .sauna {
   background-color: $color_blue;
   color: white;
+  background: $color_blue;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(left, $color_blue_dark, $color_blue);
+  background: -o-linear-gradient(left, $color_blue_dark, $color_blue);
+  background: linear-gradient(to right, $color_blue_dark, $color_blue);
+
 
   .section-header {
     // margin-left: -50%;
@@ -214,7 +219,7 @@ nav a:focus {outline:none}
         &:after {
             content: '';
             width: 0;height: 0;line-height: 0;
-            border-right: 3rem solid $color_blue;
+            border-right: 3rem solid #1d5d7f;
             border-top: 4rem solid white;
             top: 0;right: 0;
             position: absolute;
@@ -233,6 +238,9 @@ nav a:focus {outline:none}
       width: 100%;
       padding: 4% 10% 7%;
 
+      h2 {
+        color: $color_blue_dark
+      }
       .half-text {
         display: flex;
 
@@ -366,6 +374,10 @@ nav a:focus {outline:none}
     display: inline-block;
     padding: 3rem;
     box-shadow: 0px 0px 10px rgba(102,102,102,.3);
+    background: $color_blue;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(left, $color_blue_dark, $color_blue);
+    background: -o-linear-gradient(left, $color_blue_dark, $color_blue);
+    background: linear-gradient(to right, $color_blue_dark, $color_blue);
 
       p {
         font-family: 'Open Sans', sans-serif;
@@ -436,6 +448,10 @@ nav a:focus {outline:none}
            width: 100%;
            background-color: $color_blue;
            color: white;
+           background: $color_blue;  /* fallback for old browsers */
+           background: -webkit-linear-gradient(right, $color_blue_dark, $color_blue);
+           background: -o-linear-gradient(right, $color_blue_dark, $color_blue);
+           background: linear-gradient(to left, $color_blue_dark, $color_blue);
 
           .form-content {
             width: 49%;
