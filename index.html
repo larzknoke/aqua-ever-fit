@@ -104,24 +104,26 @@ layout: default
     <h1>Sprech-Zeiten</h1>
     <div class="zeiten-container">
       <div class="zeit-table fade-left">
-        <p>Sie erreichen uns am:</p>
+          <h2>Sie erreichen uns am:</h2>
         <table>
           <tr>
             <td>Montag:</td>
-            <td style="font-weight: 400">16:30 - 17:30 Uhr</td>
+            <td>16:30 - 17:30 Uhr</td>
           </tr>
           <tr>
             <td>Dienstag:</td>
-            <td style="font-weight: 400">10:00 - 12:00 Uhr</td>
+            <td>10:00 - 12:00 Uhr</td>
           </tr>
           <tr>
             <td>Donnerstag:</td>
-            <td style="font-weight: 400">16:30 - 17:30 Uhr</td>
+            <td>16:30 - 17:30 Uhr</td>
           </tr>
         </table>
-        <p>Oder unter der Telefonnummer 05271/4979370<br>
-        Sprechen Sie uns auf den Anrufbeantworter und wir rufen Sie schnellstmöglich zurück!<br>
-        Oder schreiben Sie uns eine E-Mail: info@aqua-everfit.de</p>
+        <p>Oder unter der Telefonnummer:</p>
+        <p><span><i class="fa fa-phone" aria-hidden="true"></i> 05271 / 49 79 370</span></p>
+        <p>Sprechen Sie uns auf den Anrufbeantworter und wir rufen Sie schnellstmöglich zurück!
+        Oder schreiben Sie uns eine E-Mail:</p>
+        <p><span><i class="fa fa-envelope-o" aria-hidden="true"></i> info@aqua-everfit.de</span></p>
       </div>
       <div class="section-img fade-right" style="background-image: url({{ site.baseurl }}/assets/img/home/home_zeiten.jpg);"></div>
     </div>
@@ -135,7 +137,7 @@ layout: default
   <div id="map"><a href='contact.html'>Hier finden Sie uns!</a></div>
   <div class="kontakt-container">
     <div class="form-content">
-      <form action="" method="post">
+      <form action="https://formspree.io/larz.knoke@gmail.com" method="post" id="supportForm" >
           <div>
               <!-- <label for="name">Name:</label> -->
               <input type="text" id="name" name="user_name" placeholder="Name">
@@ -149,7 +151,9 @@ layout: default
               <textarea id="msg" name="user_message" placeholder="Text hier..."></textarea>
           </div>
           <div class="button">
-            <button type="submit">Senden</button>
+            <input type="hidden" name="_subject" value="Kontaktformular: neue Nachricht!" />
+            <input type="hidden" name="_cc" value="th.stickel@schlosstheater.de, larz.knoke@gmail.com" />
+            <button type="submit" id="sendMessage">Senden</button>
           </div>
       </form>
     </div>
@@ -161,8 +165,10 @@ layout: default
           37671 Höxter <br> <br>
 
           <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> <br>
-          info@aqua-everfit.de
-          <br><br>
+          info@aqua-everfit.de <br><br>
+
+          <i class="fa fa-phone fa-2x" aria-hidden="true"></i> <br>
+          05271 / 49 79 370
       </p>
     </div>
   </div>
@@ -179,6 +185,17 @@ layout: default
 <div style="display: none;" id="impressum">
   {% include impressum.html %}
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-97741860-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 <script>
   /* GOOGLE MAPS */

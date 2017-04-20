@@ -149,6 +149,39 @@ $( document ).ready(function() {
     });
 
 
+    // Contact-Form
+    var $supportForm = $('#supportForm');
+    var $sendButton = $('#sendMessage')
+
+    $sendButton.click(function(event){
+        event.preventDefault();
+        $sendButton.val('Senden ...');
+
+        $.ajax({
+            type:     'POST',
+            url:      'https://formspree.io/larz.knoke@gmail.com',
+            data:     $supportForm.serialize(),
+            dataType: 'json',
+            // encode:   true,
+            beforeSend: function() {
+              $sendButton.prop('disabled', true);
+              $supportForm.append('<div class="alert alert--loading">Senden...</div>');
+            },
+            success: function(data) {
+              $supportForm.find('.alert--loading').hide();
+              $supportForm.trigger('reset');
+              $sendButton.removeProp('disabled');
+              $sendButton.val('Senden');
+              $supportForm.append('<div class="alert alert--success">Nachricht gesendet!</div>');
+            },
+            error: function(err) {
+              $supportForm.find('.alert--loading').hide();
+              $supportForm.append('<div class="alert alert--error">Ein Fehler ist aufgetreten. Bitte versuchen Sie es noch einmal!</div>');
+            }
+        })
+
+    });
+
 
     //scrollMonitor
 
