@@ -38,7 +38,15 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
 
+a.phone-number {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
 }
 
 nav a:focus {outline:none}
@@ -688,8 +696,19 @@ footer {
       }
   }
 
+  .zeiten .zeit-table {
+
+    table {
+      margin-bottom: 0.7rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+
   .zeiten .zeit-table table td {
-    padding: 1rem 0.25rem;
+    padding: 0.5rem 0.25rem;
+    font-size: 1.1rem
   }
 
   .kontakt .kontakt-container {
