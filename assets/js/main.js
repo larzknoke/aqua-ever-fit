@@ -159,7 +159,7 @@ $( document ).ready(function() {
 
         $.ajax({
             type:     'POST',
-            url:      'https://formspree.io/larz.knoke@gmail.com',
+            url:      'https://formspree.io/info@aqua-everfit.de',
             data:     $supportForm.serialize(),
             dataType: 'json',
             // encode:   true,
