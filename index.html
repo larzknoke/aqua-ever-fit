@@ -139,20 +139,19 @@ layout: default
     <div class="form-content">
       <form action="https://formspree.io/info@aqua-everfit.de" method="post" id="supportForm" >
           <div>
-              <!-- <label for="name">Name:</label> -->
               <input type="text" id="name" name="user_name" placeholder="Name">
           </div>
           <div>
-              <!-- <label for="mail">E-mail:</label> -->
               <input type="email" id="mail" name="user_mail" placeholder="Email">
           </div>
           <div>
-              <!-- <label for="msg">Message:</label> -->
               <textarea id="msg" name="user_message" placeholder="Text hier..."></textarea>
           </div>
+          <input type="hidden" name="_subject" value="Kontaktformular: neue Nachricht!" />
+          <input type="hidden" name="_cc" value="t@stickel-hx.de" />
+          <input type="text" name="_gotcha" style="display:none" />
+          <div class="g-recaptcha" data-sitekey="6Lf6QB4UAAAAAIXoCCRF2_msi2f-OWVRsU1u_R9c" style="margin: 0 auto; display: table"></div>
           <div class="button">
-            <input type="hidden" name="_subject" value="Kontaktformular: neue Nachricht!" />
-            <input type="hidden" name="_cc" value="t@stickel-hx.de" />
             <button type="submit" id="sendMessage">Senden</button>
           </div>
       </form>
