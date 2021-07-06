@@ -101,77 +101,75 @@ layout: default
 </section>
 
 <section class="zeiten section" id="zeiten-anchor">
-    <h1>Sprech-Zeiten</h1>
+    <div class="section-header">
+      <div class="header-dash"></div>
+      <h1>Kontakt</h1>
+    </div>
     <div class="zeiten-container">
       <div class="zeit-table fade-left">
-          <h2>Sie erreichen uns am:</h2>
-        <table>
-          <tr>
-            <td>Mittwoch:</td>
-            <td>10:00 - 12:00 Uhr</td>
-          </tr>
-          <tr>
-            <td>Donnerstag:</td>
-            <td>18:00 - 19:00 Uhr</td>
-          </tr>
-        </table>
-        <p>und nach telefonischer Vereinbarung:</p>
+        <h2>Sprechen Sie uns auf den Anrufbeantworter und wir rufen Sie schnellstmöglich zurück!</h2>
         <p><span><i class="fa fa-phone" aria-hidden="true"></i><a class="phone-number" href="tel:052714979370">05271 / 49 79 370</a></span></p>
-        <p>Sprechen Sie uns auf den Anrufbeantworter und wir rufen Sie schnellstmöglich zurück!
-        Oder schreiben Sie uns eine E-Mail:</p>
+        <h2>Oder schreiben Sie uns eine E-Mail:</h2>
         <p><span><i class="fa fa-envelope-o" aria-hidden="true"></i> info@aqua-everfit.de</span></p>
+        
+          <div class="kontakt-container">
+            <div class="form-content">
+              <form action="https://formspree.io/info@aqua-everfit.de" method="post" id="supportForm" >
+                  <div>
+                      <input type="text" id="name" name="user_name" placeholder="Name">
+                  </div>
+                  <div>
+                      <input type="email" id="mail" name="user_mail" placeholder="Email">
+                  </div>
+                  <div>
+                      <textarea id="msg" name="user_message" placeholder="Text hier..."></textarea>
+                  </div>
+                  <input type="hidden" name="_subject" value="Kontaktformular: neue Nachricht!" />
+                  <input type="hidden" name="_cc" value="t@stickel-hx.de" />
+                  <input type="text" name="_gotcha" style="display:none" />
+                  <div class="g-recaptcha" data-sitekey="6Lf6QB4UAAAAAIXoCCRF2_msi2f-OWVRsU1u_R9c" style="margin: 0 auto; display: table"></div>
+                  <div class="button">
+                    <button type="submit" id="sendMessage">Senden</button>
+                  </div>
+                  <p style="font-size: 10px; line-height:12px;">Die abgesendeten Daten werden nur zum Zweck der Bearbeitung Ihres Anliegens verarbeitet. <br> Weitere Informationen finden Sie in unserer <a style="color:white; text-decoration:underline" data-fancybox data-src="#impressum" href="javascript:;">Datenschutzerklärung</a></p>
+              </form>
+            </div>
+        </div>
       </div>
-      <div class="section-img fade-right" style="background-image: url({{ site.baseurl }}/assets/img/home/home_zeiten.jpg);"></div>
+      
+      <div class="section-img fade-right"">
+        <div id="map"><a href='contact.html'>Hier finden Sie uns!</a></div>
+      </div>
     </div>
 </section>
 
 <section class="kontakt" id="kontakt-anchor">
-  <div class="section-header">
+  <!-- <div class="section-header">
     <div class="header-dash"></div>
     <h1>Kontakt</h1>
-  </div>
-  <div id="map"><a href='contact.html'>Hier finden Sie uns!</a></div>
+  </div> -->
+  <div class="section-img" style="background-size: cover;background-position: center ;height: 600px;background-image: url({{ site.baseurl }}/assets/img/home/home_zeiten.jpg);"></div>
+  
   <div class="kontakt-container">
-    <div class="form-content">
-      <form action="https://formspree.io/info@aqua-everfit.de" method="post" id="supportForm" >
-          <div>
-              <input type="text" id="name" name="user_name" placeholder="Name">
-          </div>
-          <div>
-              <input type="email" id="mail" name="user_mail" placeholder="Email">
-          </div>
-          <div>
-              <textarea id="msg" name="user_message" placeholder="Text hier..."></textarea>
-          </div>
-          <input type="hidden" name="_subject" value="Kontaktformular: neue Nachricht!" />
-          <input type="hidden" name="_cc" value="t@stickel-hx.de" />
-          <input type="text" name="_gotcha" style="display:none" />
-          <div class="g-recaptcha" data-sitekey="6Lf6QB4UAAAAAIXoCCRF2_msi2f-OWVRsU1u_R9c" style="margin: 0 auto; display: table"></div>
-          <div class="button">
-            <button type="submit" id="sendMessage">Senden</button>
-          </div>
-          <p style="font-size: 10px; line-height:12px;">Die abgesendeten Daten werden nur zum Zweck der Bearbeitung Ihres Anliegens verarbeitet. <br> Weitere Informationen finden Sie in unserer <a style="color:white; text-decoration:underline" data-fancybox data-src="#impressum" href="javascript:;">Datenschutzerklärung</a></p>
-      </form>
-    </div>
     <div class="address">
       <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> <br>
-      <p>
-          <span>aqua-everfit GmbH & Co. KG</span> <br>
-          Lütmarserstr. 60 <br>
-          37671 Höxter <br> <br>
-
-          <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> <br>
-          info@aqua-everfit.de <br><br>
-
+        <span>aqua-everfit GmbH & Co. KG</span> <br>
+        Lütmarserstr. 60 <br>
+        37671 Höxter <br> <br>
+    </div>
+    <div class="address">
+        <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> <br>
+        info@aqua-everfit.de <br><br>
+    </div>
+    <div class="address">
           <i class="fa fa-phone fa-2x" aria-hidden="true"></i> <br>
           <a class="phone-number" href="tel:052714979370">05271 / 49 79 370</a>
-      </p>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>©2018 aqua-everfit GmbH & Co. KG | <a data-fancybox data-src="#impressum" href="javascript:;">Impressum</a></p>
+  <p>© aqua-everfit GmbH & Co. KG | <a data-fancybox data-src="#impressum" href="javascript:;">Impressum</a></p>
 </footer>
 
 <div class="backTop">

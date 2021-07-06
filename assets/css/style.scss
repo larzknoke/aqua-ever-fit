@@ -364,6 +364,42 @@ nav a:focus {outline:none}
       background-size: cover;
       width: 45%;
     }
+
+    .form-content {
+      width: 100%;
+      padding: 0rem;
+      margin-top: 2rem;
+
+
+          form {
+
+            width: 100%;
+
+            input, textarea, button[type=submit] {
+              font-family: 'Open Sans', sans-serif;
+              font-size: 1rem;
+              border: 0;
+              height: 50px;
+              color: $color_blue;
+              padding: 15px;
+              margin: 1rem 0;
+              background-color: white;
+              width: 100%;
+              transition: 200ms all ease-in-out;
+            }
+
+            textarea {
+              height: 150px;
+            }
+
+            button[type=submit]:hover {
+              background-color: $color_blue_dark;
+              color: white;
+              cursor: pointer;
+            }
+
+          }
+        }
   }
 
   h1 {
@@ -377,6 +413,7 @@ nav a:focus {outline:none}
   h2 {
     font-size: 1.3rem;
     margin-bottom: 0.8rem;
+    line-height: 2rem;
   }
 
   .zeit-table {
@@ -403,6 +440,7 @@ nav a:focus {outline:none}
           text-align: center;
           font-size: 1.3rem;
           font-family: 'Roboto Slab', serif;
+          font-weight: 500;
 
           i {
             margin-right: 1rem;
@@ -428,6 +466,13 @@ nav a:focus {outline:none}
 /* ########## KONTAKT############ */
 
 .kontakt {
+
+      margin-top: 15rem;
+      background: $color_blue;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(left, $color_blue_dark, $color_blue);
+      background: -o-linear-gradient(left, $color_blue_dark, $color_blue);
+      background: linear-gradient(to right, $color_blue_dark, $color_blue);
+
 
       h1 {
         font-family: 'Roboto Slab', serif;
@@ -458,14 +503,14 @@ nav a:focus {outline:none}
             position: relative;
 
             &:after {
-                content: '';
-                width: 0;height: 0;line-height: 0;
-                border-right: 3rem solid white;
-                border-top: 4rem solid $color_blue;
-                top: 0;right: 0;
-                position: absolute;
-              }
-          }
+                  content: '';
+                  width: 0;height: 0;line-height: 0;
+                  border-right: 3rem solid white;
+                  border-top: 4rem solid $color_blue;
+                  top: 0;right: 0;
+                  position: absolute;
+                }
+            }
 
 
         }
@@ -473,75 +518,34 @@ nav a:focus {outline:none}
         .kontakt-container {
 
            display: flex;
-           justify-content: space-between;
+           flex-direction: row;
+           justify-content: space-around;
            width: 100%;
-           background-color: $color_blue;
            color: white;
-           background: $color_blue;  /* fallback for old browsers */
-           background: -webkit-linear-gradient(right, $color_blue_dark, $color_blue);
-           background: -o-linear-gradient(right, $color_blue_dark, $color_blue);
-           background: linear-gradient(to left, $color_blue_dark, $color_blue);
-
-          .form-content {
-            width: 49%;
-            padding: 4rem;
-
-
-                form {
-
-                  width: 100%;
-
-                  input, textarea, button[type=submit] {
-                    font-family: 'Open Sans', sans-serif;
-                    font-size: 1rem;
-                    border: 0;
-                    height: 50px;
-                    color: $color_blue;
-                    padding: 15px;
-                    margin: 1rem 0;
-                    background-color: white;
-                    width: 100%;
-                  }
-
-                  textarea {
-                    height: 150px;
-                  }
-
-                  button[type=submit]:hover {
-                    background-color: $color_blue_dark;
-                    color: white;
-                    cursor: pointer;
-                  }
-
-                }
-
-
+           padding: 3rem 5rem;
 
         }
 
         .address {
-          width: 49%;
+          // width: 49%;
           line-height: 2rem;
-          font-size: 1.2rem;
+          font-size: 1.3rem;
           text-align: center;
-          padding: 7rem 4rem 0;
+          padding: 4rem 0;
+          font-weight: 300;
 
-          p span {
-            font-weight: 400;
+          i {
+            margin-bottom: 2rem;
           }
 
         }
 
-
-    }
-
 }
-
 
 
 /* ########## MAPS ############ */
 #map {
-  height: 70vh
+  height: 100%;
 }
 
 
@@ -549,6 +553,7 @@ nav a:focus {outline:none}
 /* ########## FOOTER############ */
 footer {
   padding: 2rem 4rem;
+  text-align: center;
 }
 
 
@@ -591,7 +596,11 @@ footer {
 
 /* ########## RESONSIVE STYLES ############ */
 
-@media (max-width:  667px) {
+@media (max-width:  768px) {
+
+  #map {
+    height: 50vh;
+  }
 
 
   .section {
@@ -661,6 +670,7 @@ footer {
   .zeiten .zeiten-container {
     flex-direction: column;
     padding: 0 1.5rem;
+    margin-top: 2.5rem;
 
     .section-img {
       min-height: 500px;
@@ -681,7 +691,11 @@ footer {
 
 
 
-@media (max-width: 375px) {
+@media (max-width: 420px) {
+
+  #map {
+    height: 75vh;
+  }
 
   .section .section-header h1 {
     font-size: 1.8rem;
@@ -711,12 +725,21 @@ footer {
     font-size: 1.1rem
   }
 
-  .kontakt .kontakt-container {
-    flex-direction: column;
+  .kontakt  {
+    margin-top: 6rem;
+  
+    .section-img {
+    height: 300px !important;
+    background-size: cover;
+    }
+  }
+
+  .kontakt-container {
+    flex-direction: column !important;
 
     .form-content, .address {
       width: 100%;
-      padding: 0rem 2rem 3rem;
+      padding: 0rem 2rem ;
     }
   }
 
