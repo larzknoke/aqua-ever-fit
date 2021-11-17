@@ -114,7 +114,7 @@ layout: default
         
           <div class="kontakt-container">
             <div class="form-content">
-              <form action="https://formspree.io/info@aqua-everfit.de" method="post" id="supportForm" >
+              <form action="https://formspree.io/f/xayarlzw" method="post" id="supportFormNew" >
                   <div>
                       <input type="text" id="name" name="user_name" placeholder="Name">
                   </div>
@@ -125,13 +125,11 @@ layout: default
                       <textarea id="msg" name="user_message" placeholder="Text hier..."></textarea>
                   </div>
                   <input type="hidden" name="_subject" value="Kontaktformular: neue Nachricht!" />
-                  <input type="hidden" name="_cc" value="t@stickel-hx.de" />
-                  <input type="text" name="_gotcha" style="display:none" />
-                  <div class="g-recaptcha" data-sitekey="6Lf6QB4UAAAAAIXoCCRF2_msi2f-OWVRsU1u_R9c" style="margin: 0 auto; display: table"></div>
                   <div class="button">
                     <button type="submit" id="sendMessage">Senden</button>
                   </div>
                   <p style="font-size: 10px; line-height:12px;">Die abgesendeten Daten werden nur zum Zweck der Bearbeitung Ihres Anliegens verarbeitet. <br> Weitere Informationen finden Sie in unserer <a style="color:white; text-decoration:underline" data-fancybox data-src="#impressum" href="javascript:;">Datenschutzerklärung</a></p>
+                  <p id="my-form-status"></p>
               </form>
             </div>
         </div>
@@ -197,5 +195,27 @@ layout: default
       position: myLatLng,
     });
   }
+</script>
+<script>
+    var form = document.getElementById("supportFormNew");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        status.innerHTML = "Nachricht gesendet!";
+        form.reset()
+      }).catch(error => {
+        status.innerHTML = "Ein Fehler ist aufgetreten. Bitte versuchen Sie es noch einmal!"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKraqT2tMEgmBEa4OTzi_99liGQdjDrX8&callback=initMap" async defer></script>
