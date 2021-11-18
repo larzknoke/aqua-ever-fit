@@ -1,15 +1,5 @@
 $( document ).ready(function() {
     
-     
-      var el = document.getElementById('g-recaptcha-response'); 
-      console.log(el);
-      if (el) { 
-        el.setAttribute('required', 'required'); 
-        console.log(el);
-      } 
-    
-
-
     /* NAVIGATION */
     var body = $('body')
     var logoImg = $('.logo img')
@@ -253,5 +243,16 @@ $( document ).ready(function() {
       zeitenImg.addClass('fade-in');
     });
 
+    
+    $(window).load(function() {
+      var el = document.getElementById('g-recaptcha-response'); 
+      console.log(el);
+      if (el) { 
+        el.setAttribute('required', 'required'); 
+        console.log(el);
+      } 
+    });
+    
+    
 
 });
