@@ -1,4 +1,13 @@
 $( document ).ready(function() {
+    
+     window.onload = function() { 
+      var el = document.getElementById('g-recaptcha-response'); 
+      console.log(el);
+      if (el) { 
+        el.setAttribute('required', 'required'); 
+        console.log(el);
+      } 
+    }
 
 
     /* NAVIGATION */
