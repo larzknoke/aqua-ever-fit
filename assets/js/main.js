@@ -148,64 +148,7 @@ $( document ).ready(function() {
     });
 
 
-    // Contact-Form
-    var $supportForm = $('#supportForm');
-    var $sendButton = $('#sendMessage')
-
-    $($supportForm).validate({
-      rules: {
-        user_name: 'required',
-        user_mail: {
-          required: true,
-          email: true
-        },
-        user_message: 'required'
-      },
-      messages: {
-        user_name: 'Bitte geben Sie einen Namen ein',
-        user_mail: {
-          required: 'Bitte geben Sie eine Email-Adresse ein',
-          email: 'Bitte geben Sie eine gültige Email-Adresse ein'
-        },
-        user_message: 'Bitte geben Sie eine Nachricht ein'
-      },
-      submitHandler: function(form) {
-
-        if(grecaptcha.getResponse() == "") {
-          console.log("reCaptcha FAILED!");
-          console.log(grecaptcha.getResponse())
-          $supportForm.append('<div class="alert alert--captcha">Bitte Captcha bestätigen!</div>');
-        } else {
-          console.log("reCaptcha OK!");
-          $.ajax({
-            type:     'POST',
-            url:      'https://formspree.io/info@aqua-everfit.de',
-            data:     $supportForm.serialize(),
-            dataType: 'json',
-            // encode:   true,
-            beforeSend: function() {
-              $sendButton.prop('disabled', true);
-              $sendButton.text('Nachricht wird gesendet...');
-            },
-            success: function(data) {
-              $supportForm.find('.alert--loading').hide();
-              $supportForm.trigger('reset');
-              $sendButton.prop('disabled', false);
-              $sendButton.text('Senden');
-              $supportForm.append('<div class="alert alert--success">Nachricht gesendet!</div>');
-            },
-            error: function(err) {
-              $supportForm.find('.alert--loading').hide();
-              $supportForm.append('<div class="alert alert--error">Ein Fehler ist aufgetreten. Bitte versuchen Sie es noch einmal!</div>');
-            }
-          })
-        }
-
-      }
-    });
-
-
-
+    
     //scrollMonitor
 
     //BadScroll
