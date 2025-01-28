@@ -124,7 +124,6 @@ layout: default
                   <div>
                       <textarea id="msg" name="user_message" placeholder="Text hier..."></textarea>
                   </div>
-                  <!--<div class="g-recaptcha" data-sitekey="6Lf6QB4UAAAAAIXoCCRF2_msi2f-OWVRsU1u_R9c"></div> -->
                   <div class="button">
                     <button type="submit" id="sendMessageOFF">Senden</button>
                   </div>
@@ -210,13 +209,21 @@ layout: default
             'Accept': 'application/json'
         }
       }).then(response => {
-        status.innerHTML = "Nachricht gesendet!";
-        form.reset()
+        if (response.ok) {
+          status.innerHTML = "Nachricht gesendet!";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Ein Fehler ist aufgetreten. Bitte versuchen Sie es noch einmal! "
+            }
+          })
+        }
       }).catch(error => {
         status.innerHTML = "Ein Fehler ist aufgetreten. Bitte versuchen Sie es noch einmal!"
       });
     }
     form.addEventListener("submit", handleSubmit)
 </script>
-                                  
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKraqT2tMEgmBEa4OTzi_99liGQdjDrX8&callback=initMap" async defer></script> -->
