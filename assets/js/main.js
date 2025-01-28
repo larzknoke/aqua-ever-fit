@@ -243,13 +243,7 @@ $( document ).ready(function() {
       zeitenImg.addClass('fade-in');
     });
 
-    
-    $(window).load(function() {
-      var el = document.getElementById('g-recaptcha-response'); 
-      if (el) { 
-        el.setAttribute('required', 'required'); 
-      } 
-    });
+
     
     
 
